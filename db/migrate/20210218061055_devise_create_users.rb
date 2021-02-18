@@ -31,7 +31,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-      t.string :name, null: false, default: ""
+      t.string :name, null: false, default: "Anonymous"
+      # 20210219Refileの画像の保存フォルダは「tmp/uploads/store」内（見つけ方：sqlite上で「select profile_image_id from users」で取得した文字列でファイル名検索する）
       t.text :profile_image_id
       t.text :introduction, null: false, default: ""
       t.integer :point, null: false, default: 0

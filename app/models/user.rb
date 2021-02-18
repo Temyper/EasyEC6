@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :name, presence: true, format: {with: /\A[a-zA-Z\d]{2,20}\z/}, uniqueness: true
   # validates :name, presence: true, format: {with: /\A[a-zA-Z\d]{2,20}\z/}, uniqueness: true
   
-  validates :email, presence: true, format: {with: /\A[a-zA-Z\d]{1,50}@[a-zA-Z\d\.]{1,30}\z/}
+  validates :email, presence: true, format: {with: /\A[a-zA-Z\d]{1,50}@[a-zA-Z\d]{1,10}\.?[a-zA-Z\d]{1,10}\.?[a-zA-Z\d]{1,10}\z/}
+  # 20210219設定するとエラーになる
+  # validates :encrypted_password, preser: true, format: {with: /\A[a-zA-Z\d]{6,50}\z/}
   validates :introduction, length: {maximum:50}
 end
