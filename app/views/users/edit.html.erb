@@ -1,0 +1,35 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>会員情報</h2>
+      <div class="form-body p-4">
+        <%= render 'layouts/resistration_error', resitration: @user %>
+      </div>
+      <%= form_with model: @user, local:true do |f| %>
+        <div class="form-group">
+          <p>アイコン</p>
+          <%= link_to attachment_image_tag @user, :profile_image, format: 'jpeg' , fallback: "users/NoPictureForUsers.png",:size => '60x60' %>
+        </div>
+        <div class="form-group">
+          <%= f.attachment_field :profile_image%>
+        </div>
+        <div class="form-group">
+          <p>会員名</p>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :name　%>
+        </div>
+        <div class="form-group">
+          <p>紹介</p>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :introduction %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "更新",class:"btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

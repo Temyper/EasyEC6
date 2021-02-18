@@ -1,0 +1,13 @@
+<div class="form-body p-4">
+  <%= render 'layouts/resistration_error', resitration: @good %>
+</div>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "layouts/profile_container" ,user: @user, good: @good_new %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <%= render "goods/one_profile", good: @good, good_comment: @good_comment %>
+    </div>
+  </div>
+</div>

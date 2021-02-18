@@ -1,0 +1,24 @@
+<p id="notice"></p>
+<div class="container">
+ <div class="row">
+   <h1 class="px-3 mx-auto">デモ・マーケットとは</h1>
+   <div class="explainment">
+    <p>デモ・マーケットはフリマアプリの雛形です。</p>
+    <p>ご利用の際は以下の点をご了承願います。</p>
+    <ul>
+     <li>金銭や物品の授受は発生しません。</li>
+     <li>個人情報の入力はご遠慮願います。当サイトでは登録時のメールアドレスが有効であるか確認しないため、入力規則の範囲でデタラメにご登録ください。</li>
+     <li>物品やコメントの登録は公序良俗に反しないものであれば、ご自由に願います。</li>
+     <li>当サイトのご利用によって発生したトラブルについて、当サイトは基本的に関知いたしません。</li>
+    </ul>
+    <p>よろしくお願いいたします。</p>
+   </div>
+   <% unless user_signed_in? %>
+    <div class="button-area">
+      <%= link_to "新規登録", new_user_registration_path,  class:"btn btn-info btn-sm btn-block mb-3 sign_in" %>
+    
+      <%= link_to "ログイン", new_user_session_path, class:"btn btn-success btn-sm btn-block sign_up" %>
+    </div>
+    <% end %>
+ </div>
+</div>

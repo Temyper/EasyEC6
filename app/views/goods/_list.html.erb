@@ -1,0 +1,34 @@
+<h2>物品一覧</h2>
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th></th>
+      <th>名前</th>
+      <th>紹介</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% goods.each do |good| %>
+      <tr id="good_<%= good.id %>">
+        <td>
+          <%= link_to attachment_image_tag good.user, :profile_image, format: 'jpeg' , fallback: "users/NoPictureForUsers.png",:size => '60x60' %>
+        <p><%= good.user.name %></p>
+        </td>
+        <td>
+          <%= link_to(good_path(good.id), class:"text-dark") do %>
+          <%= good.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= good.introduction %>
+        </td>
+        <td class="favorite-btn">
+          <%= render "favorites/favorite-buttons", good: good %>
+        </td>
+        <td class="comments-count">コメント数: <%= good.good_comments.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate goods %>

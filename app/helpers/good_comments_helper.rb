@@ -1,0 +1,2 @@
+module GoodCommentsHelper
+end

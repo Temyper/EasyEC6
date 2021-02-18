@@ -1,0 +1,24 @@
+<h2>会員一覧</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>アイコン</th>
+      <th></th>
+       <th></th>
+    </tr>
+    <% users.each do |user| %>
+    <tr>
+      <td>
+        <%= link_to attachment_image_tag user, :profile_image, format: 'jpeg' , fallback: "users/NoPictureForUsers.png",:size => '60x60' %>
+        <p><%= user.name %></p>
+      </td>
+      <td>
+      </td>
+      <td>
+        <%= link_to '詳細', user_path(user.id) %>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+

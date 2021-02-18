@@ -1,0 +1,46 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+
+      <h2>新規登録</h2>
+      
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+      
+        <div class="field">
+          <p>会員名</p>
+          <p>英数字2-20文字</p>
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+        
+        <div class="field">
+          <p>メールアドレス</p>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      
+        <div class="field">
+          <p>パスワード</p>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上)</em>
+          <% end %>
+          <br>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+        <br>
+        
+        <div class="field">
+          <p>パスワード確認</p>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+        <br>
+        <div class="actions">
+          <%= f.submit "新規登録" %>
+        </div>
+      <% end %>
+      <br>
+      <%= render "devise/shared/links" %>
+
+    </div>
+  </div>
+</div>

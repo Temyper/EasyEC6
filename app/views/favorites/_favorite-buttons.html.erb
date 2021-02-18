@@ -1,0 +1,13 @@
+<% if good.favorited_by?(current_user) %>
+<!--20210215なぜかハートの色が何を指定しても青に統一されるので、classでは指定しない-->
+    <%#= link_to good.favorites.count, good_favorites_path(good), method: :delete, remote: true, class: "fas fa-heart heart_red" %>
+    <%= link_to good_favorites_path(good), method: :delete, remote: true do %>
+      ♥<%= good.favorites.count %>
+    <% end %>
+  <% else %>
+    <!--20210215なぜかハートの色が何を指定しても青に統一されるので、classでは指定しない-->
+    <%#= link_to good.favorites.count, good_favorites_path(good), method: :post, remote: true, class: "fas fa-heart heart_white" %>
+    <%= link_to good_favorites_path(good), method: :post, remote: true do %>
+      ♡<%= good.favorites.count %>
+    <% end %>
+<% end %>

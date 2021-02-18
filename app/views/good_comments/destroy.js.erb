@@ -1,0 +1,3 @@
+$("#good_<%= @good.id %> .comments-count").html("コメント数: <%= @good.good_comments.count %>");
+$(".good_comments").html("<%= j(render 'good_comments/index', good: @good) %>");
+$("#good_comment_content").val("");
