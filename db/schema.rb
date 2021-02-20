@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_063013) do
   end
 
   create_table "good_comments", force: :cascade do |t|
-    t.text "content", default: "", null: false
+    t.text "content", null: false
     t.integer "user_id", null: false
     t.integer "good_id", null: false
     t.datetime "created_at", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_063013) do
   create_table "goods", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", default: "", null: false
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.integer "value", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 2021_02_18_063013) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", default: "", null: false
+    t.string "name", default: "Anonymous", null: false
     t.text "profile_image_id"
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.integer "point", default: 0, null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
