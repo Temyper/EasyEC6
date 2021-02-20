@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_063013) do
     t.datetime "remember_created_at"
     t.string "name", default: "Anonymous", null: false
     t.text "profile_image_id"
-    t.text "introduction", null: false
+    t.string "introduction", null: false
     t.integer "point", default: 0, null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
