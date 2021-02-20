@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name, null: false, default: "Anonymous"
       # 20210219Refileの画像の保存フォルダは「tmp/uploads/store」内（見つけ方：sqlite上で「select profile_image_id from users」で取得した文字列でファイル名検索する）
       t.text :profile_image_id
-      t.text :introduction, null: false, default: ""
+      t.text :introduction, null: false
       t.integer :point, null: false, default: 0
       t.boolean :is_active, null: false, default: true
 

@@ -4,7 +4,7 @@ class CreateGoods < ActiveRecord::Migration[5.2]
 
       t.integer :user_id, null: false
       t.string :name, null: false, default: ""
-      t.text :introduction, null: false, default: ""
+      t.text :introduction, null: false
       t.integer :value, null: false, default: 0
       
 
