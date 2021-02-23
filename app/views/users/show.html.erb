@@ -7,7 +7,7 @@
       <h2>物品一覧</h2>
       <% if(@user.id == current_user.id) %>
   
-        <%#= link_to "一覧をCSVで出力する", users_output_my_goods__path(format: :csv),  class: "btn btn-primary"%>
+        <%= link_to "一覧をCSVで出力する", users_output_my_goods_path(format: :csv),  class: "btn btn-primary"%>
   
       <% end %>
       <%= render "goods/list" , user: @user , goods: @goods %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "users/output_my_goods" => "users#output_my_goods"
   devise_for :users
   get 'home/about' => 'homes#about'
   root to: "homes#top"
@@ -9,5 +10,4 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit,:index, :update]
   
-  get "users/output_my_goods" => "users#output_my_goods"
 end
