@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_063013) do
 
   create_table "goods", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.text "image_id"
     t.string "name", default: "", null: false
     t.string "introduction", default: "", null: false
     t.integer "value", default: 0, null: false
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_063013) do
     t.string "name", default: "Anonymous", null: false
     t.text "profile_image_id"
     t.string "introduction", default: "", null: false
-    t.integer "point", default: 0, null: false
+    t.integer "point", default: 1000, null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,17 +1,32 @@
 <h2>物品紹介</h2>
 <table class='table'>
+  <tr>
+    <th>物品</th>
+    <th>投稿者</th>
+    <th>紹介</th>
+    <th>値段</th>
+    <th>いいね</th>
+    <th>コメント</th>
+    <th></th>
+  </tr>
   <tr id="good_<%= good.id %>">
-    <td><%= link_to user_path(good.user) do %>
-      <%= attachment_image_tag(good.user, :profile_image, :fill, 100, 100, fallback: "users/NoPictureForUsers.png") %><br>
-      <%= good.user.name %>
+    <td>
+      <%= link_to good_path(good.id) do %>
+      <%= attachment_image_tag good, :image,format: 'jpeg' , fallback: "goods/NoPictureForGoods.png",:size => '100x100' %>
+      <%= good.name %>
       <% end %>
     </td>
-    <td><%= link_to good.name, good_path(good) %></td>
+    <td><%= link_to user_path(good.user) do %>
+      <%= attachment_image_tag(good.user, :profile_image, format: "jpeg", fallback: "users/NoPictureForUsers.png", :size => "60x60") %>
+      <p><%= good.user.name %></p>
+      <% end %>
+    </td>
     <td><%= good.introduction %></td>
+    <td><%= good.value %> ポイント</td>
     <td class="favorite-btn"><%= render "favorites/favorite-buttons", good: good %></td>
     <td class="comments-count">コメント数: <%= good.good_comments.count %></td>
     <% if good.user == current_user %>
-      <td><%= link_to '詳細', edit_good_path(good), class: "btn btn-sm btn-success edit_good_#{good.id}" %></td>
+      <td><%= link_to '編集', edit_good_path(good), class: "btn btn-sm btn-success edit_good_#{good.id}" %></td>
       <td><%= link_to '削除', good_path(good), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_good_#{good.id}"%></td>
     <% end %>
   </tr>

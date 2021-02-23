@@ -8,6 +8,12 @@
       </div>
       <%= form_with model:@good, local:true do |f| %>
         <div class="form-group">
+          <%= attachment_image_tag @good, :image,format: 'jpeg' , fallback: "goods/NoPictureForGoods.png",:size => '100x100' %>
+        </div>
+        <div class="form-group">
+          <%= f.attachment_field :image %>
+        </div>
+        <div class="form-group">
           <%= f.label :name %>
         </end>
         <div class="form-group">

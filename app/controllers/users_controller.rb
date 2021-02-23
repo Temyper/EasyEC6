@@ -1,3 +1,5 @@
+require "csv"
+
 class UsersController < ApplicationController
   def show
     @user  = User.find(params[:id])
@@ -31,9 +33,45 @@ class UsersController < ApplicationController
 
   end
 
+  def output_my_goods
+    goods = Good.where(user_id: current_user.id)
+    
+    # 20210223形式毎に処理を分ける文法
+    respond_to do |format|
+      format.html
+      format.csv do |csv|
+        my_goods_csv = csv_data(goods)
+        send_data(my_goods_csv, filename: "MyGoods.csv")
+      end
+    end
+  end
+
+
+
   private
 
   def user_params
     params.require(:user).permit(:name,:email,:introduction, :profile_image)
+  end
+  
+  def csv_data(datas)
+    
+    made_csv  = CSV.generate do |csv|
+    
+      # %w……コード上、「,」の代わりに空白区切りで記述する
+      header = %w(name introduction value)
+      
+      csv << header
+      
+      datas.each do |data|
+        
+        csv << [data.name, data.introduction, data.value]
+        
+      end
+      
+    end
+    
+    return made_csv
+    
   end
 end

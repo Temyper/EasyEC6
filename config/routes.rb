@@ -8,4 +8,6 @@ Rails.application.routes.draw do
      resource :favorites, only: [:create, :destroy]
   end
   resources :users, only: [:show, :edit,:index, :update]
+  
+  get "users/output_my_goods" => "users#output_my_goods"
 end

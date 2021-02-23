@@ -4,7 +4,13 @@
       <%= render "layouts/profile_container", user: @user, good: @good %>
     </div>
     <div class="col-md-8 offset-md-1">
-      <%= render "goods/list" , goods: @goods %>
+      <h2>物品一覧</h2>
+      <% if(@user.id == current_user.id) %>
+  
+        <%#= link_to "一覧をCSVで出力する", users_output_my_goods__path(format: :csv),  class: "btn btn-primary"%>
+  
+      <% end %>
+      <%= render "goods/list" , user: @user , goods: @goods %>
     </div>
   </div>
 </div>

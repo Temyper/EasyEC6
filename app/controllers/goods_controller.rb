@@ -6,8 +6,6 @@ class GoodsController < ApplicationController
   def create
     @good = Good.new(good_params)
     @good.user_id = current_user.id
-    @good.value = 1000
-   
     
     if @good.save
       flash[:success] = '更新に成功しました。'
@@ -61,6 +59,6 @@ class GoodsController < ApplicationController
   private
 
   def good_params
-    params.require(:good).permit(:name, :introduction,:user_id , :value)
+    params.require(:good).permit(:name, :introduction,:user_id ,:image, :value)
   end
 end

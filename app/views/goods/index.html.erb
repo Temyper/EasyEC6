@@ -7,7 +7,7 @@
       <%= render 'layouts/profile_container' ,user: @user, good: @good %>
     </div>
     <div class="col-md-8 offset-md-1">
-      <%= render 'goods/list', goods: @goods %>
+      <%= render 'goods/list',user: @user, goods: @goods %>
     </div>
   </div>
 </div>
