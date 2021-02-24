@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "search/search" => "search#search"
   devise_for :users
   get 'home/about' => 'homes#about'
   root to: "homes#top"
@@ -10,5 +11,5 @@ Rails.application.routes.draw do
   # 20210223独自のアクションはresourcesより上に置かないとエラーになる
   get "users/output_my_goods" => "users#output_my_goods"
   resources :users, only: [:show, :edit,:index, :update]
-  
+  post "/search" => "search#search"
 end
