@@ -10,7 +10,7 @@
 
 ### テーマを選んだ理由
 
-　アプリの作成の基本を期限以内に抑えることを優先しました。
+　アプリの作成の基本をエラー無く期限以内に抑えることを優先しました。
 
 ### ターゲットユーザ
 
@@ -24,15 +24,15 @@
 <...>
 
 ## チャレンジ要素一覧
+
 <https://docs.google.com/spreadsheets/d/1DbmLmqjBsAMmv7gOHX3CZO5C-b9HkmBM4NXb-3c2mGU/edit#gid=0>
-Flexbox
 BEM記法
 環境変数化
 非同期通信
 デプロイ
 README
 ユーザー認証
-csvインポート・エクスポート
+csvエクスポート
 
 ## 開発環境
 
