@@ -24,7 +24,7 @@
     <td><%= good.introduction %></td>
     <td><%= good.value %> ポイント</td>
     <td class="favorite-btn"><%= render "favorites/favorite-buttons", good: good %></td>
-    <td class="comments-count">コメント数: <%= good.good_comments.count %></td>
+    <td class="comments-count"><%= good.good_comments.count %></td>
     <% if good.user == current_user %>
       <td><%= link_to '編集', edit_good_path(good), class: "btn btn-sm btn-success edit_good_#{good.id}" %></td>
       <td><%= link_to '削除', good_path(good), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_good_#{good.id}"%></td>
